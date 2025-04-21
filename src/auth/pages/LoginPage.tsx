@@ -5,6 +5,7 @@ import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks";
 import { useDispatch } from "react-redux";
 import { checkingAuthentication, startGoogleSignIn } from '../../store/auth'
+import { AppDispatch } from "../../store";
 export const LoginPage = () => {
 
   const { email, password, onInputChange } = useForm({
@@ -12,7 +13,7 @@ export const LoginPage = () => {
     password: '123456'
   })
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>()
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
